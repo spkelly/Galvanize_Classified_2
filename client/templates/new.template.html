@@ -1,0 +1,14 @@
+<h1>New Template</h1>
+
+
+<form class="new-form" ng-submit="$ctrl.createAd(ad)" method="post">
+  <label for="title">Title:</label>
+  <input type="text" name="title" ng-model="ad.title" value={{$ctrl.ad.title}}><br>
+  <label for="description">Description:</label><br>
+  <textarea ng-model="ad.description" name="description" rows="8" cols="80"></textarea><br>
+  <label for="price">Price</label>
+  <input ng-model="ad.price" name="price" type="text"><br>
+  <label for="image">Image URL</label>
+  <input ng-model="ad.item_image" type="text" name="image" value=""><br>
+  <button type="submit" name="button">Create Ad</button>
+</form>

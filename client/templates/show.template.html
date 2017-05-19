@@ -1,0 +1,11 @@
+<h1>Classifieds</h1>
+<a href="/classifieds/new">new ad</a>
+<input type="text" ng-model="$ctrl.filterText.title" placeholder="filter">
+<div class="ad_container" ng-repeat="ad in $ctrl.ads | filter:$ctrl.filterText:strict track by $index ">
+  <img ng-src="{{ad.item_image}}" alt="">
+  <h1 class="add-title">{{ad.title}}</h1>
+  <h2 class="add-descripion">{{ad.description}}</h2>
+  <h2>Price: ${{ad.price.toFixed(2)}}</h2>
+  <a ng-href="/classifieds/{{ad.id}}/edit">edit this ad</a>
+  <a href="#" ng-click="$ctrl.delete(ad.id)">delete this ad</a>
+</div>

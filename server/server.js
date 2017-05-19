@@ -11,8 +11,8 @@ app.use(bodyParser.json());
 
 const messages = require('./routes/classifieds');
 app.use('/api/classifieds',messages);
-app.use('/js', app.static(path.join(__dirname, '/../client/js')));
-app.use('/templates', app.static(path.join(__dirname, '/../client/templates')));
+app.use('/js', express.static(path.join(__dirname, '../client/js')));
+app.use('/templates', express.static(path.join(__dirname, '../client/templates')));
 
 app.get('*', function(req, res) {
   res.sendFile('index.html', {root: './client/'});
@@ -27,10 +27,6 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-// app.get('*', (req,res) =>{
-//   res.sendFile('index.html')
-// })
-// error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
