@@ -1,7 +1,12 @@
 <h1>Classifieds</h1>
 <a href="/classifieds/new">new ad</a>
 <input type="text" ng-model="$ctrl.filterText.title" placeholder="filter">
-<div class="ad_container" ng-repeat="ad in $ctrl.ads | filter:$ctrl.filterText:strict track by $index ">
+<select ng-model="orderInput">
+  <option value="title" selected>Sort By Title</option>
+  <option value="price">Sort By Price: lowest to highest</option>
+  <option value="-price">Sort By Price: highest to lowest </option>
+</select>
+<div class="ad_container" ng-repeat="ad in $ctrl.ads | orderBy:orderInput | filter:$ctrl.filterText:strict  track by $index ">
   <img ng-src="{{ad.item_image}}" alt="">
   <h1 class="add-title">{{ad.title}}</h1>
   <h2 class="add-descripion">{{ad.description}}</h2>
